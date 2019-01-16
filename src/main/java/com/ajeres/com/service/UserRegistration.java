@@ -8,18 +8,24 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.apache.commons.lang3.RandomUtils;
+
+import com.ajeres.com.dao.AccountRepository;
 import com.ajeres.com.dao.UserRepository;
+import com.ajeres.com.entity.AccountEntity;
 import com.ajeres.com.entity.UserEntity;
 import com.ajeres.com.model.Account;
 import com.ajeres.com.model.ResponseObj;
 import com.ajeres.com.model.Status;
-
 import com.ajeres.com.model.User;
 
 @Service
 public class UserRegistration {
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	AccountRepository accountRepository;
 	
 	
 	public ResponseObj<User> validate(User user)
@@ -83,10 +89,16 @@ public class UserRegistration {
 	}
 	
 	
-	public ResponseObj<Account> registerAccount(User user) {
-		ResponseObj<Account> response=new ResponseObj<>();
-
-		
+	public ResponseObj<AccountEntity> registerAccount(User user) {
+		ResponseObj<AccountEntity> response=new ResponseObj<>();
+		UserEntity userEntity=new UserEntity();
+		userEntity.setId(user.getId());
+		AccountEntity accountEntity=new AccountEntity();
+		accountEntity.setAccountNo(RandomUtils.nextInt(0, 1000));
+		accountEntity.setUser(userEntity);
+		accountRepository.save(accountEntity);
+		response.setStatus(Status.Success);
+		response.getData().add(accountEntity);
 		return response;
 	}
 	

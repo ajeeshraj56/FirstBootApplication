@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ajeres.com.dao.UserRepository;
+import com.ajeres.com.entity.AccountEntity;
 import com.ajeres.com.entity.UserEntity;
-import com.ajeres.com.model.Account;
 import com.ajeres.com.model.ResponseObj;
 import com.ajeres.com.model.Status;
 import com.ajeres.com.model.User;
@@ -27,9 +27,9 @@ public class RegistrationController {
 	private UserRegistration userRegistration;
 	
 	@PutMapping(value="registration")
-	public ResponseObj<Account> regAccout(@RequestBody User user)
+	public ResponseObj<AccountEntity> regAccout(@RequestBody User user)
 	{
-		ResponseObj<Account> response= new ResponseObj<>();
+		ResponseObj<AccountEntity> response= new ResponseObj<>();
 		Optional<UserEntity> userExists = userrepo.findById(user.getId());
 		
 		if(userExists.isPresent())

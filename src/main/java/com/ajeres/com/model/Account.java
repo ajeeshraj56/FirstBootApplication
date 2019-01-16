@@ -4,7 +4,7 @@ public class Account {
 	
 	int accountNo;
 	Long balance;
-	int userId;
+	Long userId;
 	
 	
 	public int getAccountNo() {
@@ -19,11 +19,11 @@ public class Account {
 	public void setBalance(Long balance) {
 		this.balance = balance;
 	}
-	public int getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserId(Long long1) {
+		this.userId = long1;
 	}
 	
 
