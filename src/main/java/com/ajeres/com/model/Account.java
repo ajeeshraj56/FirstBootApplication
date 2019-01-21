@@ -2,15 +2,15 @@ package com.ajeres.com.model;
 
 public class Account {
 	
-	int accountNo;
+	Long accountNo;
 	Long balance;
 	Long userId;
 	
 	
-	public int getAccountNo() {
+	public Long getAccountNo() {
 		return accountNo;
 	}
-	public void setAccountNo(int accountNo) {
+	public void setAccountNo(Long accountNo) {
 		this.accountNo = accountNo;
 	}
 	public Long getBalance() {

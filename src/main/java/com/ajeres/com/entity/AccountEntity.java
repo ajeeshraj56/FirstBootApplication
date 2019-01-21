@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class AccountEntity {
 
 	@Id
-    private	int accountNo;
+    private	Long accountNo;
 	
 	private Long balance;
 	
@@ -20,10 +20,10 @@ public class AccountEntity {
     @JoinColumn(name = "id", nullable = false)
     private UserEntity user;
 	
-	public int getAccountNo() {
+	public Long getAccountNo() {
 		return accountNo;
 	}
-	public void setAccountNo(int accountNo) {
+	public void setAccountNo(Long accountNo) {
 		this.accountNo = accountNo;
 	}
 	public Long getBalance() {
