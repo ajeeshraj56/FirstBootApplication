@@ -25,7 +25,7 @@ import com.ajeres.com.service.UserRegistration;
 public class LoginController {
 	
 	 @Autowired
-	    private UserRepository userRepository;
+	 private UserRepository userRepository;
 	 
 	 @Autowired
 	 private UserRegistration userRegistration;

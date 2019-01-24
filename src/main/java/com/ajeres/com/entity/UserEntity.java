@@ -10,15 +10,20 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student")
+@Table(name = "user")
 public class UserEntity {
 
 	    @Id
+	    @GeneratedValue
 	    private Long id;
+	    
 	    private String password;
+	    
 	    private String name;
+	    
 	    private String email;
-	    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "user")
+	    
+	    @OneToOne(fetch = FetchType.LAZY,mappedBy = "user", cascade=CascadeType.ALL)
 	    private AccountEntity accountEntity;
 	    
 	    public AccountEntity getAccountEntity() {

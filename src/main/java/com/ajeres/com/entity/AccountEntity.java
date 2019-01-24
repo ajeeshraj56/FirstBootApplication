@@ -1,7 +1,9 @@
 package com.ajeres.com.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -12,18 +14,21 @@ import javax.persistence.Table;
 public class AccountEntity {
 
 	@Id
-    private	int accountNo;
+	@GeneratedValue
+	private Long id;
+	
+    private	Long accountNo;
 	
 	private Long balance;
 	
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 	
-	public int getAccountNo() {
+	public Long getAccountNo() {
 		return accountNo;
 	}
-	public void setAccountNo(int accountNo) {
+	public void setAccountNo(Long accountNo) {
 		this.accountNo = accountNo;
 	}
 	public Long getBalance() {
